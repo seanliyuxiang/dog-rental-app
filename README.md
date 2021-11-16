@@ -1,3 +1,5 @@
+Abby, Gabriel, Sean
+
 # Project Template: React/Rails API
 
 ## Description

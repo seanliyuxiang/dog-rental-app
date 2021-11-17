@@ -8,17 +8,26 @@ import Login from "./Login";
 import UserProfile from "./UserProfile"
 
 function App() {
-  const [dogs, setDogs] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
+  // auto login
   useEffect(() => {
-    fetch("/api/dogs")
-    .then(response => response.json())
-    .then(data => setDogs(data))
+    fetch('api/me')
+    .then(response => {
+      if(response.ok) {
+        response.json().then(user => setCurrentUser(user))
+      }
+    })
   }, [])
 
-  
-  
-  
+  if(!currentUser) {
+    return (
+      <>
+        <NavBar />
+        <Login setCurrentUser={setCurrentUser} />
+      </>
+    )
+  }
   
   return (
     <div>
@@ -28,7 +37,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/dogs_for_rent">
-            <DogCardContainer dogs={dogs}/>
+            <DogCardContainer />
           </Route>
           <Route exact path="/login">
             <Login />

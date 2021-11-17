@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import Signup from "./Signup";
+import Login from "./Login";
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -24,9 +26,16 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route>
+          <Route exact path="/dogs_for_rent">
             <DogCardContainer dogs={dogs}/>
           </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          
        </Switch>
     </div>
   );

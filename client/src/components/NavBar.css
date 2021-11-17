@@ -1,0 +1,26 @@
+.nav-bar{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    animation: forwards;
+    font-size: 1 em;
+    color:white;
+    text-shadow: 0 0 0 var(--green);
+    background-color: linear-gradient
+    (45deg, rgb(156, 14,156),midnightblue);
+    text-align: center;
+    font-size: 15px 
+  }
+.nav-bar h1{
+    position: absolute ;
+    left: 10px;
+    text-decoration-color:Orange;
+  }
+.nav-list .nav-link {
+    list-style-type: none;
+    background-color: linear-gradient
+    (45deg, rgb(156, 14,156),midnightblue);
+}
+
+

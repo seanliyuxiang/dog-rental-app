@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-function Login() {
+function Login({setCurrentUser}) {
     const [loginFormData, setLoginFormData] = useState({
         username: "",
         password: ""
@@ -12,6 +12,7 @@ function Login() {
         })
     }
 
+    // sends to sessionscontroller #create method
     function handleSubmit (event) {
         event.preventDefault();
         console.log('inside handlesubmit function, before fetch post', loginFormData)
@@ -23,16 +24,22 @@ function Login() {
             },
             body: JSON.stringify(loginFormData)
         })
-        .then(response => response.json())
-        .then(data => console.log('response from fetch post', data))
-        // we should add action to empty the form 
-
-
+        .then(response => {
+            if (response.ok) {
+                response.json().then(user => {
+                    setCurrentUser(user)
+                    console.log('after successful post login', user)
+                })
+            }
+        });
     }
     
     
     return (
         <div>
+            <div className="login-header">
+                <h3>Woof! Welcome Friend!</h3>
+            </div>
             <form onSubmit={handleSubmit} className='loginForm'>
                 <label>Username</label>
                 <input type='text' name="username" value={loginFormData.username} onChange={handleChange} /> <br />

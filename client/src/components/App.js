@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Signup from "./Signup";
 import Login from "./Login";
+import UserProfile from "./UserProfile"
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route>
+            <UserProfile exact path="userprofile"/>
           </Route>
           
        </Switch>

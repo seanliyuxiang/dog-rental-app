@@ -14,8 +14,8 @@
   }
 .nav-bar h1{
     position: absolute ;
-    left: 10px;
-    text-decoration-color:Orange;
+    left: 100px;
+    background-color: midnightblue
   }
 .nav-list .nav-link {
     list-style-type: none;

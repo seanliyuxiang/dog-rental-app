@@ -5,9 +5,9 @@ import {NavLink} from 'react-router-dom';
 
 function NavBar() {
     return (
-    
+        <div>
+        <h1>Rent-a-Friendly-Doggie</h1>
         <div className="nav-bar">
-                <h1> Rent A-Friendly-Doggie</h1>
                 <NavLink
                 to='/'
                 className="nav-bar-route"
@@ -28,8 +28,13 @@ function NavBar() {
                 className="nav-bar-route"
                 >Sign Up</NavLink>
 
-             </div>   
+                <NavLink
+                to='/userprofile'
+                className="nav-bar-route"
+                >Profile</NavLink>
 
+             </div>   
+</div>
                         
     )
 }

@@ -47,7 +47,30 @@ dog_likes = ['running', 'hiking', 'swimming', 'going on a chill walk', 'going to
       owner_id: user.id,
       location: "#{Faker::Address.city}, #{Faker::Address.state}, #{Faker::Address.zip}"
     )
-    
   end
+end
+
+puts '🌱 Seeding rentals...'
+
+# iterate through all dogs
+Dog.all.each do |dog|
+
+  # save all user ids into a new array
+  user_ids = User.all.map { |user| user.id }
   
+  # for each dog, create 2 rentals
+  2.times do
+
+    # all existing user id numbers minus the person who owns the dog
+    user_ids.delete(dog.owner_id)
+
+    Rental.create(
+      dog_id: dog.id,
+      user_id: user_ids.sample,
+      start_date: Faker::Date.in_date_period(month: 10),
+      end_date: Faker::Date.in_date_period(month: 11),
+      status: 'approved'
+    )
+  end
+
 end

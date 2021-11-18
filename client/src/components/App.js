@@ -5,7 +5,8 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Signup from "./Signup";
 import Login from "./Login";
-import UserProfile from "./UserProfile"
+import UserProfile from "./UserProfile";
+import DogDetail from './DogDetail';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -46,10 +47,14 @@ function App() {
             <Signup />
           </Route>
           <Route>
-            <UserProfile exact path="userprofile"/>
+            <UserProfile exact path="/userprofile" currentUser={currentUser}/>
+          </Route>
+
+          <Route exact path="/dogs_for_rent/:id">
+            <DogDetail />
           </Route>
           
-       </Switch>
+      </Switch>
     </div>
   );
 }

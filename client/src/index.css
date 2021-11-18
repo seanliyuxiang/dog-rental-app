@@ -5,12 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: -o-linear-gradient(
-    315deg,
-    #f5deb3 0%,
-    #faf0e6 50%,
-    white 100%
-  );
+
 }
 
 
@@ -35,7 +30,14 @@ code {
   position: relative;
   border-radius: 5px;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
-  background-color: rgba(245, 245, 0.973);
+  background: linear-gradient(
+    315deg,
+    #89cff0 0%,
+    #87cefa 25%,
+    #ace5ee 50%,
+    #e7feff 75%,
+    white 100%
+  );
   transform-style: preserve-3d;
   transition: 150ms;
   cursor: pointer;
@@ -69,4 +71,81 @@ code {
   position: relative ;
   left: -10px;
   text-decoration-color: #f5deb3;
+}
+
+.home-page h1{
+  border-style: double;
+  padding: 10px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex; 
+  flex-direction: column;
+  width: 70%;
+  margin: 1rem;
+  margin-left: 15%;
+}
+
+.home-page p{
+  transform-style: preserve-3d;
+  border-style: double;
+  border-color:black;
+  padding: 10px, 10px, 10px, 10px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex; 
+  flex-direction: column;
+  width: 70%;
+  margin: 2rem;
+  margin-left: 15%;
+}
+.dog-details{
+  border-style: double;
+  padding: 10px 5px 10px 5px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex; 
+  flex-direction: column;
+  margin: 2rem;
+  margin-left: 15%;
+  width: 70%;
+  background: linear-gradient(
+    315deg,
+    #89cff0 0%,
+    #87cefa 25%,
+    #ace5ee 50%,
+    #e7feff 75%,
+    white 100%
+  );
+}
+
+.signupForm{
+  margin: 5rem;
+  padding: 10px 5px 10px 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  border: rgba(40, 87, 137, 1);
+  border-style: inset;
+  background-color: rgba(245, 245, 245, 0.973);
+  color: rgba(40, 87, 137, 1);
+}
+
+.login{
+  margin: 5rem;
+  padding: 10px 5px 10px 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  border: rgba(40, 87, 137, 1);
+  border-style: inset;
+ 
 }

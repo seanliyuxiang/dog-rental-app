@@ -11,67 +11,82 @@ const linkStyles = {
     borderRadius: "0px 17px 0px 17px",
   };
 
-function NavBar() {
+function NavBar({currentUser, setCurrentUser}) {
+
+    function handleLogout (event) {
+        console.log(event)
+        // fetch DELETE session#destroy
+        // fetch('/logout'),{
+//          method: POST 
+        // }
+        // .then()
+        // .then()
+    }
+
+
     return (
-        <div>
         <div className="nav-bar">
-        <h1>Rent-a-Friendly-Doggie</h1>
-                <NavLink
-                to='/'
-                exact
-                style={linkStyles}
-                className="nav-bar-route"
-                activeStyle={{
-                    cursor: 'pointer',
-                    hover: {
-                      color: '#FF0000'
-                    }
-                  }}
-                >Home</NavLink>
+            <h1>Rent-a-Friendly-Doggie</h1>
 
-                <NavLink
-                to='/dogs_for_rent'
-                exact
-                style={linkStyles}
-                className="nav-bar-route"
-                activeStyle={{
-                    cursor: 'pointer'
-                  }}
-                >Rent a Dog</NavLink>
+            <NavLink
+            to='/'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer',
+                hover: {
+                    color: '#FF0000'
+                }
+            }}
+            >Home</NavLink>
 
-                <NavLink
-                to='/login'
-                exact
-                style={linkStyles}
-                className="nav-bar-route"
-                activeStyle={{
-                    cursor: 'pointer'
-                  }}
-                >Login</NavLink>
+            <NavLink
+            to='/dogs_for_rent'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            >Rent a Dog</NavLink>
 
-                <NavLink
-                to='/signup'
-                exact
-                style={linkStyles}
-                className="nav-bar-route"
-                activeStyle={{
-                    cursor: 'pointer'
-                  }}
-                >Sign Up</NavLink>
+           {!currentUser ? 
+            <NavLink
+            to='/login'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            >Login</NavLink>
+            
+            : <button onclick={handleLogout}>Logout</button> }
+           
 
-                <NavLink
-                to='/userprofile'
-                exact
-                style={linkStyles}
-                className="nav-bar-route"
-                activeStyle={{
-                    cursor: 'pointer'
-                  }}
-                >Profile</NavLink>
+            <NavLink
+            to='/signup'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            >Sign Up</NavLink>
 
-             </div>   
-</div>
-                        
+
+            <NavLink
+            to='/userprofile'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            >Profile</NavLink>
+
+        </div>          
     )
 }
 

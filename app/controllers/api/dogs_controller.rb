@@ -6,6 +6,12 @@ class Api::DogsController < ApplicationController
         dogs = Dog.all
         render json: dogs
     end
+
+    # GET /api/dogs/:id
+    def show
+        dog = Dog.find(params[:id])
+        render json: dog, status: :ok
+    end
     
     private
 

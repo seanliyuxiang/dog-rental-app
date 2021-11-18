@@ -10,7 +10,8 @@ class Api::DogsController < ApplicationController
     # GET /api/dogs/:id
     def show
         dog = Dog.find(params[:id])
-        render json: dog, status: :ok
+        # render json: dog, status: :ok
+        render json: dog, include: ['rentals', 'rentals.user'], status: :ok
     end
     
     private

@@ -13,7 +13,7 @@ function App() {
 
   // auto login
   useEffect(() => {
-    fetch('api/me')
+    fetch('/api/me')
     .then(response => {
       if(response.ok) {
         response.json().then(user => setCurrentUser(user))
@@ -24,7 +24,7 @@ function App() {
   if(!currentUser) {
     return (
       <>
-        <NavBar />
+        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Login setCurrentUser={setCurrentUser} />
       </>
     )
@@ -41,13 +41,13 @@ function App() {
             <DogCardContainer />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route>
-            <UserProfile exact path="/userprofile" currentUser={currentUser}/>
+          <Route exact path="/userprofile">
+            <UserProfile currentUser={currentUser} />
           </Route>
 
           <Route exact path="/dogs_for_rent/:id">

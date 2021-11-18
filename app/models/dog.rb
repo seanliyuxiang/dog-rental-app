@@ -24,7 +24,9 @@ class Dog < ApplicationRecord
         class_name: :User
 
     has_many :rentals
-
-    has_many :users, through: :rentals
+    
+    has_many :renters,
+        through: :rentals,
+        source: :user
 
 end

@@ -25,6 +25,8 @@ class User < ApplicationRecord
 
     has_many :rentals
 
-    has_many :dogs, through: :rentals
+    has_many :rented_dogs,
+        through: :rentals,
+        source: :dog
 
 end

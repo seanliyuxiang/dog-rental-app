@@ -8,7 +8,7 @@ function NewRentalForm ({currentUser}) {
     
     const [newRentalFormData, setNewRentalFormData] = useState({
         dog_id: parseInt(params.id),
-        user_id: currentUser.id,
+        user_id: currentUser ? currentUser.id : null,
         start_date: "",
         end_date: "",
         status: "Pending"
@@ -28,9 +28,7 @@ function NewRentalForm ({currentUser}) {
         })
     }, [params.id])
     
-    if (!selectedDog) {
-        return <h3>Loading...</h3>
-    }
+  
     
     function handleChange (event) {
         setNewRentalFormData({
@@ -59,6 +57,10 @@ function NewRentalForm ({currentUser}) {
                 })
             }
         })
+    }
+
+    if (!selectedDog) {
+        return <h3>Loading...</h3>
     }
 
     return (

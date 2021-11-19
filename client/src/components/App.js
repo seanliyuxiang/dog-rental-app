@@ -39,15 +39,19 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+
           <Route exact path="/dogs_for_rent">
             <DogCardContainer currentUser={currentUser} />
           </Route>
+
           <Route exact path="/login">
             <Login setCurrentUser={setCurrentUser} />
           </Route>
+
           <Route exact path="/signup">
             <Signup setCurrentUser={setCurrentUser} />
           </Route>
+
           <Route exact path="/userprofile">
             <UserProfile currentUser={currentUser} />
           </Route>
@@ -55,6 +59,7 @@ function App() {
           <Route exact path="/dogs_for_rent/:id">
             <DogDetail currentUser={currentUser} />
           </Route>
+
           <Route exact path="/dogs_for_rent/:id/rentals/new">
             <NewRentalForm currentUser={currentUser} />
           </Route>

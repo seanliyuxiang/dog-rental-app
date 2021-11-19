@@ -20,7 +20,38 @@ code {
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   margin: 20px 20px 20px 45px;
   padding: 30px;
+  background: linear-gradient(
+    315deg,
+    #89cff0 0%,
+    #87cefa 25%,
+    #ace5ee 50%,
+    #e7feff 75%,
+    white 100%
+  );
 }
+
+.card-grid .new-dog-form{
+  border-style: double;
+  padding: 10px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex; 
+  flex-direction: column;
+  margin: 1rem;
+  width: 300px;
+  height: 400px;
+  margin-left: 15%;
+  background: linear-gradient(
+    315deg,
+    #89cff0 0%,
+    #87cefa 25%,
+    #ace5ee 50%,
+    #e7feff 75%,
+    white 100%
+  );
+}
+
 .card{
   display: flex;
   flex-direction: column;
@@ -40,9 +71,15 @@ code {
   transition: 150ms;
   cursor: pointer;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0))
-    translateY(var(--translate-y, 0));*/
+  translateY(var(--translate-y, 0));*/
   margin: 10px;
 }
+
+.card img {
+  height: 300px;
+  width: 250px
+}
+
 
 .nav-bar{
   position: relative;
@@ -64,8 +101,15 @@ code {
 
 .nav-bar h1{
   position: relative ;
-  left: -10px;
+  left: -50px;
   text-decoration-color: #f5deb3;
+  justify-content: center;
+}
+.welcome-name h2{ 
+  position:relative;
+  right: -50px;
+  font-size: small;
+  justify-content: center;
 }
 .home-page{
   display: flex;
@@ -79,6 +123,7 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .home-page h1{
   border-style: double;
   padding: 10px;
@@ -209,15 +254,4 @@ code {
   border-style: double;
   background-color: rgba(245, 245, 245, 0.973);
   color: rgba(40, 87, 137, 1);
-}
-.welcome-name{
-
-}
-.new-dog-form{
-  display: flex;
-  margin-left: 1%; 
-  align-items: center;
-  border: midnightblue;
-  background-color: rgba(245, 245, 245, 0.973);
-  color: rgba(40, 87, 137, 1) 
 }

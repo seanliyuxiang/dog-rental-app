@@ -3,8 +3,6 @@ import DogCard from './DogCard';
 import NewDogForm from './NewDogForm';
 import {NavLink} from 'react-router-dom';
 
-// **still need to render the NewDogForm component!
-
 function DogCardContainer({currentUser}) {
     const [dogs, setDogs] = useState([]);
 
@@ -16,11 +14,26 @@ function DogCardContainer({currentUser}) {
     }, [])
 
     function renderDogCards () {
+
+        function updateDogVotes(updatedDog) {
+            console.log("returned response from backend", updatedDog);
+
+            setDogs(dogs.map(
+                singleDog => {
+                    if (singleDog.id === updatedDog.id) {
+                        return updatedDog
+                    } else {
+                        return singleDog
+                    }
+                }
+            ));
+        }
+
         // iterate through the array of dogs and create a DogCard for each
         return(
             dogs.map(dog => {
                 return(
-                    <DogCard dog={dog} key={dog.id} />
+                    <DogCard updateDogVotes={updateDogVotes} dog={dog} key={dog.id} />
                 )
             })
         )

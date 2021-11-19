@@ -37,15 +37,13 @@ dog_likes = ['running', 'hiking', 'swimming', 'going on a chill walk', 'going to
       breed: Faker::Creature::Dog.breed,
       size: Faker::Creature::Dog.size,
       color: Faker::Color.color_name,
-
-      # image_url: "https://loremflickr.com/#{rand(150..200)}/#{rand(150..200)}/all",
-
-      image: Faker::LoremFlickr.image(size: "#{rand(150..300)}x#{rand(150..300)}", search_terms: ['dog']),
+      image: Faker::LoremFlickr.image(size: "#{rand(250..300)}x#{rand(250..300)}", search_terms: ['dog']),
       gender: Faker::Creature::Dog.gender,
       # take two random activities from `dog_likes` array above
       likes: dog_likes.sample(2).join(', '),
       owner_id: user.id,
-      location: "#{Faker::Address.city}, #{Faker::Address.state}, #{Faker::Address.zip}"
+      location: "#{Faker::Address.city}, #{Faker::Address.state}, #{Faker::Address.zip}",
+      upvotes: 5
     )
   end
 end

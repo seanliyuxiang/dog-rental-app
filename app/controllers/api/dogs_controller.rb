@@ -3,7 +3,7 @@ class Api::DogsController < ApplicationController
 
     # GET /api/dogs
     def index
-        dogs = Dog.all
+        dogs = Dog.all.order("id ASC")
         render json: dogs
     end
 
@@ -23,6 +23,18 @@ class Api::DogsController < ApplicationController
             render json: {error: 'What you tried to create is not a dog!'}, status: :unprocessable_entity
         end
     end
+
+    def update
+        dog = Dog.find(params[:id])
+        dog.update(dog_params)
+        render json: dog, status: :ok
+    end
+
+    def destroy
+        dog = Dog.find(params[:id])
+        dog.destroy
+        head :no_content
+    end
     
     private
 
@@ -37,7 +49,8 @@ class Api::DogsController < ApplicationController
             :gender,
             :likes,
             :owner_id,
-            :location
+            :location,
+            :upvotes
         )
     end
 

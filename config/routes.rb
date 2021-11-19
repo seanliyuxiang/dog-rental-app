@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :dogs
+    resources :rentals, only: [:create]
     
     get '/me', to: 'users#show'
     post '/signup', to: 'users#create'

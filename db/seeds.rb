@@ -69,7 +69,7 @@ Dog.all.each do |dog|
       user_id: user_ids.sample,
       start_date: Faker::Date.in_date_period(month: 10),
       end_date: Faker::Date.in_date_period(month: 11),
-      status: 'approved'
+      status: 'Approved'
     )
   end
 

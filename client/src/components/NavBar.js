@@ -13,20 +13,23 @@ const linkStyles = {
 
 function NavBar({currentUser, setCurrentUser}) {
 
-    function handleLogout (event) {
-        console.log(event)
+    function handleLogout () {
         // fetch DELETE session#destroy
-        // fetch('/logout'),{
-//          method: POST 
-        // }
-        // .then()
-        // .then()
+        fetch('/api/logout', {
+            method: "DELETE"
+        })
+        .then(response => {
+            if (response.ok){
+                setCurrentUser(null);
+                console.log('successful delete')
+            }
+        })
     }
 
 
     return (
         <div className="nav-bar">
-            <h1>Rent-a-Friendly-Doggie</h1>
+            <h1>(❍ᴥ❍ʋ)</h1>
 
             <NavLink
             to='/'
@@ -52,6 +55,8 @@ function NavBar({currentUser, setCurrentUser}) {
             >Rent a Dog</NavLink>
 
            {!currentUser ? 
+           <>
+
             <NavLink
             to='/login'
             exact
@@ -61,9 +66,6 @@ function NavBar({currentUser, setCurrentUser}) {
                 cursor: 'pointer'
             }}
             >Login</NavLink>
-            
-            : <button onclick={handleLogout}>Logout</button> }
-           
 
             <NavLink
             to='/signup'
@@ -75,6 +77,19 @@ function NavBar({currentUser, setCurrentUser}) {
             }}
             >Sign Up</NavLink>
 
+            </>
+            :
+            <>
+
+            <NavLink to='/'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            onClick={handleLogout}
+            >Log Out</NavLink>
 
             <NavLink
             to='/userprofile'
@@ -85,6 +100,11 @@ function NavBar({currentUser, setCurrentUser}) {
                 cursor: 'pointer'
             }}
             >Profile</NavLink>
+
+            </>
+            }
+           
+            
 
         </div>          
     )

@@ -23,7 +23,8 @@ function DogCardContainer() {
     }
     
     return (
-        <div className="Card-grid">
+        <div className="card-grid">
+            {}
             {renderDogCards()}
         </div>
     )

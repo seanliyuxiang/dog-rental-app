@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 
 function DogDetail ({currentUser}) {
   // window.location.reload();
   const [selectedDog,setSelectedDog] = useState(null);
   const params = useParams();
+  const history = useHistory();
 
   useEffect(()=>{
     fetch(`/api/dogs/${params.id}`)
@@ -14,6 +15,17 @@ function DogDetail ({currentUser}) {
       console.log(data)
     })
   }, [params.id])
+
+  function handleDeleteClick () {
+    console.log('inside delete click function', selectedDog)
+
+    fetch(`/api/dogs/${params.id}`, {
+      method: "DELETE"
+    })
+    .then( () => {
+      history.push('/dogs_for_rent')
+    });
+  }
 
   if (!selectedDog) {
     return <h3>Loading...</h3>
@@ -45,7 +57,8 @@ function DogDetail ({currentUser}) {
           )
         })}
       </table>
-      <Link to={`/dogs_for_rent/${params.id}/rentals/new`}>Make a new request</Link>
+
+      {currentUser.id === selectedDog.owner_id ? <button onClick={handleDeleteClick}>Delete</button> : <Link to={`/dogs_for_rent/${params.id}/rentals/new`}>Make a new request</Link>}
     </div>
   )
 }

@@ -15,8 +15,9 @@ function NewDogForm ({currentUser}) {
         image: '',
         gender: '',
         likes: '',
-        owner_id: currentUser.id,
-        location: ''
+        owner_id: currentUser ? currentUser.id : null,
+        location: '',
+        upvotes: 0
     });
 
     function handleChange(event) {
@@ -54,8 +55,8 @@ function NewDogForm ({currentUser}) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="new-dog-form">
+        <div className="new-dog-form">
+            <form onSubmit={handleSubmit} >
                 <label>Name</label>
                 <input type="text" name="name" value={newDogFormData.name} onChange={handleChange} /> <br />
 

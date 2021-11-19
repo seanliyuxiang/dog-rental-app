@@ -103,7 +103,7 @@ function NavBar({currentUser, setCurrentUser}) {
             >Log Out</NavLink>
 
             <div className="welcome-name">
-                Welcome, {currentUser.username}!
+                <h2>Welcome, {currentUser.username}!</h2>
             </div>
 
             </>

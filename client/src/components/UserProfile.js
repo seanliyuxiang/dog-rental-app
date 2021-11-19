@@ -5,11 +5,12 @@ function UserProfile({currentUser}) {
     // already did the fetch get from /api/me in the app.js component
     // here we'll just accept it and render the user's profile info
     
-    
+    if (!currentUser) {
+        return <h3>Loading...</h3>
+    }
     
     return (
             <div className="user-profile">
-                {console.log(currentUser)}
                 <h2>Your info:</h2>
                 <h3>Username: {currentUser.username}</h3>
                 <h3>First Name: {currentUser.first_name}</h3>

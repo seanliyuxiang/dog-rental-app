@@ -23,7 +23,8 @@ class Dog < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :User
 
-    has_many :rentals
+    has_many :rentals, 
+        dependent: :destroy
     
     has_many :renters,
         through: :rentals,

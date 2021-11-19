@@ -40,13 +40,13 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/dogs_for_rent">
-            <DogCardContainer />
+            <DogCardContainer currentUser={currentUser} />
           </Route>
           <Route exact path="/login">
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/signup">
-            <Signup />
+            <Signup setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/userprofile">
             <UserProfile currentUser={currentUser} />

@@ -44,15 +44,6 @@ function NavBar({currentUser, setCurrentUser}) {
             }}
             >Home</NavLink>
 
-            <NavLink
-            to='/dogs_for_rent'
-            exact
-            style={linkStyles}
-            className="nav-bar-route"
-            activeStyle={{
-                cursor: 'pointer'
-            }}
-            >Rent a Dog</NavLink>
 
            {!currentUser ? 
            <>
@@ -81,15 +72,15 @@ function NavBar({currentUser, setCurrentUser}) {
             :
             <>
 
-            <NavLink to='/'
+            <NavLink
+            to='/dogs_for_rent'
             exact
             style={linkStyles}
             className="nav-bar-route"
             activeStyle={{
                 cursor: 'pointer'
             }}
-            onClick={handleLogout}
-            >Log Out</NavLink>
+            >Rent a Dog</NavLink>
 
             <NavLink
             to='/userprofile'
@@ -101,11 +92,23 @@ function NavBar({currentUser, setCurrentUser}) {
             }}
             >Profile</NavLink>
 
+            <NavLink to='/'
+            exact
+            style={linkStyles}
+            className="nav-bar-route"
+            activeStyle={{
+                cursor: 'pointer'
+            }}
+            onClick={handleLogout}
+            >Log Out</NavLink>
+
+            <div className="welcome-name">
+                Welcome, {currentUser.username}!
+            </div>
+
             </>
             }
-           
-            
-
+        
         </div>          
     )
 }

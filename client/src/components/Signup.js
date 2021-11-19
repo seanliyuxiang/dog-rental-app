@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom';
 
-function Signup() {
+function Signup({setCurrentUser}) {
+
+    const history = useHistory();
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -29,10 +32,15 @@ function Signup() {
             },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => console.log('data response after fetch post!', data));
-
-        // we should add action to empty the form 
+        .then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    console.log('data response after fetch post!', data)
+                    setCurrentUser(data)
+                    history.push('/dogs_for_rent')
+                })
+            }
+        })
     }
 
     return (

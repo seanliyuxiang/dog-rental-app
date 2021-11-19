@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 
 function Login({setCurrentUser}) {
+    const history = useHistory();
+
     const [loginFormData, setLoginFormData] = useState({
         username: "",
         password: ""
@@ -29,6 +32,8 @@ function Login({setCurrentUser}) {
                 response.json().then(user => {
                     setCurrentUser(user)
                     console.log('after successful post login', user)
+                    // redirect to home page
+                    history.push('/dogs_for_rent')
                 })
             }
         });
@@ -37,10 +42,8 @@ function Login({setCurrentUser}) {
     
     return (
         <div>
-            <div className="login-header">
+            <form onSubmit={handleSubmit} className='login-form'>
                 <h3>Woof! Welcome Friend!</h3>
-            </div>
-            <form onSubmit={handleSubmit} className='loginForm'>
                 <label>Username</label>
                 <input type='text' name="username" value={loginFormData.username} onChange={handleChange} /> <br />
                 

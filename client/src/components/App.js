@@ -7,6 +7,8 @@ import Signup from "./Signup";
 import Login from "./Login";
 import UserProfile from "./UserProfile";
 import DogDetail from './DogDetail';
+import NewRentalForm from './NewRentalForm';
+// import background from "../images/StarryShiba.png";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -21,18 +23,18 @@ function App() {
     })
   }, [])
 
-  if(!currentUser) {
-    return (
-      <>
-        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
-        <Login setCurrentUser={setCurrentUser} />
-      </>
-    )
-  }
+  // if(!currentUser) {
+  //   return (
+  //     <>
+  //       <Login setCurrentUser={setCurrentUser} />
+  //     </>
+  //   )
+  // }
+  
   
   return (
     <div>
-      <NavBar />
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -51,11 +53,15 @@ function App() {
           </Route>
 
           <Route exact path="/dogs_for_rent/:id">
-            <DogDetail />
+            <DogDetail currentUser={currentUser} />
+          </Route>
+          <Route exact path="/dogs_for_rent/:id/rentals/new">
+            <NewRentalForm currentUser={currentUser} />
           </Route>
           
       </Switch>
     </div>
+
   );
 }
 

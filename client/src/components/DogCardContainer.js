@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import DogCard from './DogCard';
+import NewDogForm from './NewDogForm';
+import {NavLink} from 'react-router-dom';
 
-function DogCardContainer() {
+// **still need to render the NewDogForm component!
+
+function DogCardContainer({currentUser}) {
     const [dogs, setDogs] = useState([]);
 
     // fetching all dogs
@@ -23,10 +27,13 @@ function DogCardContainer() {
     }
     
     return (
+        <>
+        {/* <NavLink> </NavLink> */}
         <div className="card-grid">
-            {}
+            <NewDogForm currentUser={currentUser} />
             {renderDogCards()}
         </div>
+        </>
     )
 }
 

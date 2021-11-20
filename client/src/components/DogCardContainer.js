@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import DogCard from './DogCard';
 import NewDogForm from './NewDogForm';
-import {NavLink} from 'react-router-dom';
 
 function DogCardContainer({currentUser}) {
     const [dogs, setDogs] = useState([]);

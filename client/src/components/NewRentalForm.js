@@ -28,7 +28,6 @@ function NewRentalForm ({currentUser}) {
         })
     }, [params.id])
     
-  
     
     function handleChange (event) {
         setNewRentalFormData({

@@ -13,6 +13,7 @@ function Signup({setCurrentUser}) {
         username: "",
         password: "",
         password_confirmation: "",
+        image_url: ""
     });
 
     function handleChange (event) {
@@ -46,6 +47,10 @@ function Signup({setCurrentUser}) {
     return (
         <div>
             <form className="signupForm" onSubmit={handleSubmit}>
+                
+                <label>Image URL</label>
+                <input type="text" name="image_url" onChange={handleChange} value={formData.image_url} /> <br/>
+
                 <label>First Name</label>
                 <input type="text" name="first_name" onChange={handleChange} value={formData.first_name} /> <br/>
 

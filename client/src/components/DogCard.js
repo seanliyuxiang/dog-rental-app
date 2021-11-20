@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
-import DogDetail from './DogDetail';
+import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 function DogCard({dog, updateDogVotes}) {

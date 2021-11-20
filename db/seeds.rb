@@ -25,7 +25,8 @@ dog_likes = ['running', 'hiking', 'swimming', 'going on a chill walk', 'going to
     location: "#{Faker::Address.city}, #{Faker::Address.state}, #{Faker::Address.zip}",
     phone_number: Faker::PhoneNumber.cell_phone,
     username: Faker::Games::Pokemon.unique.name,
-    password: 'password'
+    password: 'password',
+    image_url: Faker::LoremFlickr.image(size: "#{rand(250..300)}x#{rand(250..300)}", search_terms: ['pokemon'])
   )
 
   # for each user, create 2 random dogs

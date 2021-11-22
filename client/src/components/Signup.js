@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom';
+import styled from 'styled-components';
 
 function Signup({setCurrentUser}) {
-
+    const [errors, setErrors] = useState([]);
     const history = useHistory();
 
     const [formData, setFormData] = useState({
@@ -40,6 +41,11 @@ function Signup({setCurrentUser}) {
                     setCurrentUser(data)
                     history.push('/dogs_for_rent')
                 })
+            } else {
+                response.json().then(errors => {
+                    console.log(errors)
+                    setErrors(errors.errors)
+                })
             }
         })
     }
@@ -74,8 +80,50 @@ function Signup({setCurrentUser}) {
 
                 <input type="submit"/>
             </form>
-        </div>
+
+            {errors.length > 0 ?
+                errors.map(error => {
+                    return (
+                        <div>
+                            <Wrapper>
+                                <Alert>!</Alert>
+                                <Message>
+                                    {error}
+                                </Message>
+                            </Wrapper>
+                        </div>
+                    );
+                })
+                : null
+            }
+        </div> 
     )
 }
+
+const Wrapper = styled.div`
+    color: red;
+    background-color: mistyrose;
+    border-radius: 6px;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    justify-content: center;
+`;
+
+const Alert = styled.div`
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: grid;
+    place-content: center;
+`;
+
+const Message = styled.p`
+    margin: 0;
+`;
 
 export default Signup;

@@ -6,8 +6,9 @@ class Api::SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, status: :created
-        else 
-            render json: {error: "Invalid username or password. Please try again." }, status: :unauthorized
+        else
+            # debugger
+            render json: {errors: ['Invalid username or password.'] }, status: :unauthorized
         end
     end
 
@@ -17,7 +18,7 @@ class Api::SessionsController < ApplicationController
             session.delete(:user_id)
             head :no_content
         else
-            render json: {error: "You are not logged in."}, status: :unauthorized
+            render json: {errors: ["You are not logged in."]}, status: :unauthorized
         end
     end
 

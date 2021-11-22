@@ -229,7 +229,7 @@ code {
   display: flex; 
   flex-direction: column;
   margin: 1rem;
-  width: 70%;
+  width: 50%;
   margin-left: 15%;
   background: linear-gradient(
     315deg,
@@ -240,6 +240,10 @@ code {
     white 100%
   );
 }
+
+/* .user-profile #owned-dogs-summary {
+
+} */
 
 .new-rental-form{
   margin: 5rem;
